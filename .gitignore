@@ -1,0 +1,5 @@
+*.o
+so_long
+.vscode
+.swp
+*.a

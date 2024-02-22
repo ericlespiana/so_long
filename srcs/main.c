@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/21 04:09:44 by erpiana          ###   ########.fr       */
+/*   Created: 2024/02/21 02:50:31 by erpiana           #+#    #+#             */
+/*   Updated: 2024/02/22 20:08:11 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "ft_so_long.h"
 
-# include "libft.h"
-
-#endif
+int main(int argc, char *argv[])
+{
+	ft_parse_arguments(argc, argv[1]);
+	return (0);
+}

@@ -6,7 +6,7 @@
 #    By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 02:50:47 by erpiana           #+#    #+#              #
-#    Updated: 2024/02/21 04:17:13 by erpiana          ###   ########.fr        #
+#    Updated: 2024/02/22 20:08:28 by erpiana          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,21 @@
 #                                   PATH                                       #
 #******************************************************************************#
 
-SRC_PATH := srcs/
-LIB_PATH := libft/
-INCS     := include/ $(LIB_PATH)include
+SRC_P    := srcs/
+LIB_P    := libft/
+TEXT_P   := textures/
+MAPS_P   := maps/
+INCS     := include/ $(LIB_P)include
 CPPFLAGS := $(addprefix -I, $(INCS)) -MP
 
 #******************************************************************************#
 #                                  FILES                                       #
 #******************************************************************************#
 
-SRCS     += $(addprefix $(SRC_PATH), so_long.c)
+SRCS     += $(addprefix $(SRC_P), main.c ft_parse.c)
 OBJS     += $(addprefix obj/, $(notdir $(SRCS:.c=.o)))
 NAME     := so_long
-LIBFT    := $(addprefix $(LIB_PATH), libft.a) 
+LIBFT    := $(addprefix $(LIB_P), libft.a) 
 
 #******************************************************************************#
 #                               BASH COMMANDS                                  #
@@ -49,7 +51,7 @@ CFLAGS   := -Wall -Wextra -Werror
 all: $(LIBFT) $(NAME)
 
 $(LIBFT):
-	make -C libft/
+	make bonus -C libft/
 
 $(NAME): obj $(OBJS)
 	$(CC) $(OBJS) $(LIBFT) -o $@
@@ -58,7 +60,7 @@ $(NAME): obj $(OBJS)
 obj:
 	mkdir -p $(BUILD)
 
-obj/%.o: $(SRC_PATH)%.c
+obj/%.o: $(SRC_P)%.c $(INCS)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:

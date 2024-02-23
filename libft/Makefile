@@ -6,7 +6,7 @@
 #    By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 07:56:03 by erpiana           #+#    #+#              #
-#    Updated: 2024/02/20 04:41:11 by erpiana          ###   ########.fr        #
+#    Updated: 2024/02/23 02:22:40 by erpiana          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS 		:= 	$(addprefix $(SRCS_PATH), ft_isascii.c ft_isprint.c ft_isalpha.c ft_i
 				ft_memchr.c ft_memcmp.c ft_strdup.c ft_calloc.c ft_itoa.c \
 				ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 				ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_strmapi.c \
-				ft_striteri.c ft_printf.c ft_print_format.c ft_puthexa.c ft_printf_utils.c)
+				ft_striteri.c ft_printf.c ft_print_format.c ft_puthexa.c ft_printf_utils.c get_next_line.c get_next_line_utils.c)
 OBJS		+=	$(addprefix obj/, $(notdir $(SRCS:.c=.o)))
 BONUS 		:=	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
 				ft_lstclear_bonus.c ft_lstdelone_bonus.c \

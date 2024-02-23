@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_so_long.h                                       :+:      :+:    :+:   */
+/*   ft_utils_error.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/23 07:53:11 by erpiana          ###   ########.fr       */
+/*   Created: 2024/02/23 07:51:11 by erpiana           #+#    #+#             */
+/*   Updated: 2024/02/23 08:05:06 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SO_LONG_H
-# define FT_SO_LONG_H
+#ifndef FT_UTILS_ERROR_H
+# define FT_UTILS_ERROR_H
 
-# include "ft_utils_error.h"
-# include "libft.h"
-# include <fcntl.h>
+# define READ_ERROR "Error\nIt was no possible to read the file descriptor\n"
+# define JOIN_ERROR "Error\nCan't join strings\n"
+# define ERROR_COLUMN "Error\nColumn don't have the same proportion\n"
 
-void	ft_parse_arguments(int argc, char *map_name);
-void	ft_validate(char *map_name);
-
-# define LIMIT_ARGS 2
-# define TRUE 1
-# define FALSE 0
-
-typedef struct maps
-{
-	int	fd;
-	int	start;
-	int	exit;
-	int	collectibles;
-}	t_map;
+void	ft_error(char *msg);
 
 #endif

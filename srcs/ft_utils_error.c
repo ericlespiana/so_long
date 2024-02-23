@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_so_long.h                                       :+:      :+:    :+:   */
+/*   ft_utils_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/23 07:53:11 by erpiana          ###   ########.fr       */
+/*   Created: 2024/02/23 07:51:30 by erpiana           #+#    #+#             */
+/*   Updated: 2024/02/23 07:53:24 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SO_LONG_H
-# define FT_SO_LONG_H
+#include "ft_so_long.h"
 
-# include "ft_utils_error.h"
-# include "libft.h"
-# include <fcntl.h>
-
-void	ft_parse_arguments(int argc, char *map_name);
-void	ft_validate(char *map_name);
-
-# define LIMIT_ARGS 2
-# define TRUE 1
-# define FALSE 0
-
-typedef struct maps
+void	ft_error(char *msg)
 {
-	int	fd;
-	int	start;
-	int	exit;
-	int	collectibles;
-}	t_map;
-
-#endif
+	ft_putstr_fd(msg, 2);
+	exit(EXIT_FAILURE);
+}

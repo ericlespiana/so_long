@@ -6,7 +6,7 @@
 #    By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 02:50:47 by erpiana           #+#    #+#              #
-#    Updated: 2024/02/22 20:08:28 by erpiana          ###   ########.fr        #
+#    Updated: 2024/02/23 08:05:49 by erpiana          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CPPFLAGS := $(addprefix -I, $(INCS)) -MP
 #                                  FILES                                       #
 #******************************************************************************#
 
-SRCS     += $(addprefix $(SRC_P), main.c ft_parse.c)
+SRCS     += $(addprefix $(SRC_P), main.c ft_parse.c ft_validate.c ft_utils_error.c)
 OBJS     += $(addprefix obj/, $(notdir $(SRCS:.c=.o)))
 NAME     := so_long
 LIBFT    := $(addprefix $(LIB_P), libft.a) 

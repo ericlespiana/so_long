@@ -6,32 +6,16 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:37:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/27 14:15:11 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/27 14:17:19 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long.h"
 
+static void	init_variable_map(t_map *map);
+static void	free_error(t_map *map, char *tmp, char *buf);
 static void	ft_validate_proportion(t_map *map, char *temp);
 static void	check_one_and_size(char *tmp, t_map *map, char *buf, size_t c_size);
-
-static void	init_variable_map(t_map *map)
-{
-	map->start = 0;
-	map->exit = 0;
-	map->collectibles = 0;
-}
-
-static void	free_error(t_map *map, char *tmp, char *buf)
-{
-	get_next_line(map->fd, 0);
-	free(tmp);
-	if (buf)
-		free(buf);
-	close(map->fd);
-	ft_error("Error\nYour file is not sourroundet by \
-or it is out of proportion!\n");
-}
 
 void	ft_validate(char *map_name)
 {
@@ -50,6 +34,24 @@ void	ft_validate(char *map_name)
 	}
 	ft_validate_proportion(&map, temp);
 	close(map.fd);
+}
+
+static void	init_variable_map(t_map *map)
+{
+	map->start = 0;
+	map->exit = 0;
+	map->collectibles = 0;
+}
+
+static void	free_error(t_map *map, char *tmp, char *buf)
+{
+	get_next_line(map->fd, 0);
+	free(tmp);
+	if (buf)
+		free(buf);
+	close(map->fd);
+	ft_error("Error\nYour file is not sourroundet by \
+or it is out of proportion!\n");
 }
 
 static void	ft_validate_proportion(t_map *map, char *temp)

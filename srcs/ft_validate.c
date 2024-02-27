@@ -6,11 +6,14 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:37:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/27 10:19:17 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/27 10:22:43 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long.h"
+
+static void	ft_validate_proportion(int fd, t_map *map);
+static void	check_one_and_size(char *tmp, t_map *map, char *buf, size_t c_size);
 
 static void	init_variable_map(t_map *map)
 {
@@ -18,8 +21,6 @@ static void	init_variable_map(t_map *map)
 	map->exit = 0;
 	map->collectibles = 0;
 }
-static void	ft_validate_proportion(int fd, t_map *map);
-static void	check_one_and_size(char *tmp, t_map *map, char *buf, size_t c_size);
 
 //Funcão principal desse arquivo
 
@@ -50,10 +51,7 @@ static void	ft_validate_proportion(int fd, t_map *map)
 	while (temp)
 	{
 		if (!ft_strchr(temp, '\n'))
-		{
-			column_size--;
-			check_one_and_size(temp, map, buffer, column_size);
-		}
+			check_one_and_size(temp, map, buffer, --column_size);
 		if (ft_strlen(temp) != column_size)
 			check_one_and_size(temp, map, buffer, column_size);
 		buffer = ft_strjoin_gnl(buffer, temp);

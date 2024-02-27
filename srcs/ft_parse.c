@@ -6,12 +6,11 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 19:01:55 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/27 08:27:34 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/27 15:30:42 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long.h"
-#include "ft_utils_error.h"
 
 static int	validate_extension(char *map_name)
 {

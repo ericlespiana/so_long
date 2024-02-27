@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:37:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/27 14:17:19 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/27 16:27:59 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,6 @@ static void	init_variable_map(t_map *map)
 	map->collectibles = 0;
 }
 
-static void	free_error(t_map *map, char *tmp, char *buf)
-{
-	get_next_line(map->fd, 0);
-	free(tmp);
-	if (buf)
-		free(buf);
-	close(map->fd);
-	ft_error("Error\nYour file is not sourroundet by \
-or it is out of proportion!\n");
-}
-
 static void	ft_validate_proportion(t_map *map, char *temp)
 {
 	char	*buffer;
@@ -88,9 +77,23 @@ static void	check_one_and_size(char *tmp, t_map *map, char *buf, size_t c_size)
 			i++;
 		if (tmp[i] != '\n' && tmp[i] != '\0')
 			flag = 1;
+		times++;
 	}
+	else if (tmp[0] != '1' || tmp[c_size - 2] != '1')
+		flag = 1;
 	if (c_size != ft_strlen(tmp))
 		flag = 1;
 	if (flag)
 		free_error(map, tmp, buf);
+}
+
+static void	free_error(t_map *map, char *tmp, char *buf)
+{
+	get_next_line(map->fd, 0);
+	free(tmp);
+	if (buf)
+		free(buf);
+	close(map->fd);
+	ft_error("Error\nYour file is not sourrounded by 1 \
+or it is out of proportion!\n");
 }

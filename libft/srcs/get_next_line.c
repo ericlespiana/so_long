@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:02:57 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/23 02:30:31 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/27 10:16:12 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,16 @@ static char	*read_file(char *line, int fd)
 	return (line);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int flag)
 {
 	static char	*file;
 	char		*line;
 
+	if (flag == 0)
+	{
+		free(file);
+		return (NULL);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	file = read_file(file, fd);

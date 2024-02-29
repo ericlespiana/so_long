@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:37:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/29 09:08:35 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 10:29:16 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,11 @@ static char	*ft_validate_proportion(t_map *map, char *temp)
 
 static void	validate_line(char *tmp, t_map *map, char *buf, size_t c_size)
 {
-	if (check_proportion(tmp, c_size) || check_walls(tmp, c_size)
-		|| check_invalid_char(tmp))
+	static int	time;
+
+	if (check_proportion(tmp, c_size) || check_walls(tmp, c_size, time))
 		free_error(map, tmp, buf);
+	time = 1;
 }
 
 static void	free_error(t_map *map, char *tmp, char *buf)
@@ -66,6 +68,5 @@ static void	free_error(t_map *map, char *tmp, char *buf)
 	if (buf)
 		free(buf);
 	close(map->fd);
-	ft_error("Error\nYour file is not sourrounded by 1 \
-or it is out of proportion!\n");
+	ft_error("Error\n");
 }

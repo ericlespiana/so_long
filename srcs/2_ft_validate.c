@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:37:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/29 07:21:03 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 07:42:07 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	init_variable_map(t_map *map);
 static void	free_error(t_map *map, char *tmp, char *buf);
-static char *ft_validate_proportion(t_map *map, char *temp);
+static char	*ft_validate_proportion(t_map *map, char *temp);
 static void	check_one_and_size(char *tmp, t_map *map, char *buf, size_t c_size);
 
 void	ft_validate(char *map_name)
@@ -24,14 +24,11 @@ void	ft_validate(char *map_name)
 	char	*buffer;
 
 	init_variable_map(&map);
-	map.fd = open(map_name, O_RDONLY, 0666);
-	if (map.fd == -1)
-		ft_error("Error to open map!\n");
+	map.fd = open_file(map_name);
 	temp = get_next_line(map.fd, 1);
 	if (!temp)
 		failt_temp(map.fd);
 	buffer = ft_validate_proportion(&map, temp);
-	ft_printf("%s\n", buffer);
 	free(buffer);
 	close(map.fd);
 }
@@ -43,7 +40,7 @@ static void	init_variable_map(t_map *map)
 	map->collectibles = 0;
 }
 
-static char *ft_validate_proportion(t_map *map, char *temp)
+static char	*ft_validate_proportion(t_map *map, char *temp)
 {
 	char	*buffer;
 	size_t	col_size;

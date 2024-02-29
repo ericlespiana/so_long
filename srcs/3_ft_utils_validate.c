@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:51:30 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/29 07:15:09 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 07:39:46 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,14 @@ void	failt_temp(int fd)
 {
 	close(fd);
 	ft_error("Error\nThis file is empty!\n");
+}
+
+int	open_file(char *file)
+{
+	int	fd;
+	
+	fd = open(file, O_RDONLY, 0666);
+	if (fd == -1)
+		ft_error("Error to open map!\n");
+	return (fd);
 }

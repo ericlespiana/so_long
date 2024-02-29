@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:31 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/29 08:32:23 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 11:57:25 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int	main(int argc, char *argv[])
 {
 	ft_parse_arguments(argc, argv[1]);
 	ft_validate(argv[1]);
-	return (0);
+	return (EXIT_SUCCESS);
 }

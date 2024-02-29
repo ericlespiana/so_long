@@ -6,14 +6,16 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:51:30 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/29 10:41:25 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 11:49:17 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long.h"
 
-void	ft_error(char *msg)
+void	ft_error(char *msg, char *buffer)
 {
+	if (buffer)
+		free(buffer);
 	ft_putstr_fd(msg, 2);
 	exit(EXIT_FAILURE);
 }
@@ -21,7 +23,7 @@ void	ft_error(char *msg)
 void	fail_temp(int fd)
 {
 	close(fd);
-	ft_error("Error\nThis file is empty!\n");
+	ft_error("Error\nThis file is empty!\n", NULL);
 }
 
 int	open_file(char *file)
@@ -30,7 +32,7 @@ int	open_file(char *file)
 
 	fd = open(file, O_RDONLY, 0666);
 	if (fd == -1)
-		ft_error("Error\nIt was no possible to open the map!\n");
+		ft_error("Error\nIt was no possible to open the map!\n", NULL);
 	return (fd);
 }
 

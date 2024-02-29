@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 08:53:55 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/29 10:37:12 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 12:01:15 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int	check_proportion(char *tmp, size_t c_size)
 	if (c_size != ft_strlen(tmp))
 	{
 		ft_putstr_fd("Error\nInvalid proportion!\n", 2);
-		return (1);
+		return (TRUE);
 	}
-	return (0);
+	return (FALSE);
 }
 
 int	check_walls(char *tmp, size_t c_size, int time)
 {
 	int	i;
-	int flag;
-	
+	int	flag;
+
 	i = 0;
 	flag = 0;
 	if (time == 0 || !ft_strchr(tmp, '\n'))
@@ -45,9 +45,9 @@ int	check_walls(char *tmp, size_t c_size, int time)
 	if (flag)
 	{
 		ft_putstr_fd("Error\nMap don't surrounded by 1\n", 2);
-		return (1);
+		return (TRUE);
 	}
-	return (0);
+	return (FALSE);
 }
 
 static int	check_invalid_char(char *tmp)
@@ -61,9 +61,9 @@ static int	check_invalid_char(char *tmp)
 			&& tmp[i] != 'E' && tmp[i] != 'P')
 		{
 			ft_putstr_fd("Error\nInvalid char in your map!\n", 2);
-			return (1);
+			return (TRUE);
 		}
 		i++;
 	}
-	return (0);
+	return (FALSE);
 }

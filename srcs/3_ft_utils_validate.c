@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:51:30 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/29 08:47:43 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 10:41:25 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	open_file(char *file)
 
 	fd = open(file, O_RDONLY, 0666);
 	if (fd == -1)
-		ft_error("Error to open map!\n");
+		ft_error("Error\nIt was no possible to open the map!\n");
 	return (fd);
 }
 

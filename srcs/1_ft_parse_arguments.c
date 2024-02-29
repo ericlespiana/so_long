@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   1_ft_parse_arguments.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 19:01:55 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/27 15:30:42 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 10:39:21 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	ft_parse_arguments(int argc, char *map_name)
 
 	fd = 2;
 	if (argc < LIMIT_ARGS)
-		ft_error("Error!\nPlease provide a map with extension .ber\n");
+		ft_error("Please provide a map with extension .ber\n");
 	else if (argc > LIMIT_ARGS)
-		ft_error("Error!\nToo many arguments!\n");
+		ft_error("Too many arguments!\n");
 	else if (argc == LIMIT_ARGS && validate_extension(map_name))
-		ft_error("Error\nWrong file extension!\n");
+		ft_error("Wrong file extension!\n");
 }

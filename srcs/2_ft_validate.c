@@ -6,14 +6,14 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:37:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/29 10:29:16 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 10:40:10 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_so_long.h"
 
 static void	free_error(t_map *map, char *tmp, char *buf);
-static char	*ft_validate_proportion(t_map *map, char *temp);
+static char	*ft_validate_map(t_map *map, char *temp);
 static void	validate_line(char *tmp, t_map *map, char *buf, size_t c_size);
 
 void	ft_validate(char *map_name)
@@ -27,12 +27,12 @@ void	ft_validate(char *map_name)
 	temp = get_next_line(map.fd, 1);
 	if (!temp)
 		fail_temp(map.fd);
-	buffer = ft_validate_proportion(&map, temp);
+	buffer = ft_validate_map(&map, temp);
 	free(buffer);
 	close(map.fd);
 }
 
-static char	*ft_validate_proportion(t_map *map, char *temp)
+static char	*ft_validate_map(t_map *map, char *temp)
 {
 	char	*buffer;
 	size_t	col_size;
@@ -68,5 +68,5 @@ static void	free_error(t_map *map, char *tmp, char *buf)
 	if (buf)
 		free(buf);
 	close(map->fd);
-	ft_error("Error\n");
+	ft_error(NULL);
 }

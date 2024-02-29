@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_validate.c                                      :+:      :+:    :+:   */
+/*   2_ft_validate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:37:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/27 16:27:59 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/02/29 07:21:03 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 static void	init_variable_map(t_map *map);
 static void	free_error(t_map *map, char *tmp, char *buf);
-static void	ft_validate_proportion(t_map *map, char *temp);
+static char *ft_validate_proportion(t_map *map, char *temp);
 static void	check_one_and_size(char *tmp, t_map *map, char *buf, size_t c_size);
 
 void	ft_validate(char *map_name)
 {
 	t_map	map;
 	char	*temp;
+	char	*buffer;
 
 	init_variable_map(&map);
 	map.fd = open(map_name, O_RDONLY, 0666);
@@ -28,11 +29,10 @@ void	ft_validate(char *map_name)
 		ft_error("Error to open map!\n");
 	temp = get_next_line(map.fd, 1);
 	if (!temp)
-	{
-		close(map.fd);
-		ft_error("Error\nThis file is empty!\n");
-	}
-	ft_validate_proportion(&map, temp);
+		failt_temp(map.fd);
+	buffer = ft_validate_proportion(&map, temp);
+	ft_printf("%s\n", buffer);
+	free(buffer);
 	close(map.fd);
 }
 
@@ -43,7 +43,7 @@ static void	init_variable_map(t_map *map)
 	map->collectibles = 0;
 }
 
-static void	ft_validate_proportion(t_map *map, char *temp)
+static char *ft_validate_proportion(t_map *map, char *temp)
 {
 	char	*buffer;
 	size_t	col_size;
@@ -60,7 +60,7 @@ static void	ft_validate_proportion(t_map *map, char *temp)
 		temp = get_next_line(map->fd, 1);
 	}
 	free(temp);
-	free(buffer);
+	return (buffer);
 }
 
 static void	check_one_and_size(char *tmp, t_map *map, char *buf, size_t c_size)

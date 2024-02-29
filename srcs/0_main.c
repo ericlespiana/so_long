@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils_validate.h                                :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 07:51:11 by erpiana           #+#    #+#             */
-/*   Updated: 2024/02/29 07:15:24 by erpiana          ###   ########.fr       */
+/*   Created: 2024/02/21 02:50:31 by erpiana           #+#    #+#             */
+/*   Updated: 2024/02/29 06:49:05 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_UTILS_VALIDATE_H
-# define FT_UTILS_VALIDATE_H
+#include "ft_so_long.h"
 
-# include "ft_so_long.h"
-
-void	ft_error(char *msg);
-void	failt_temp(int fd);
-
-#endif
+int	main(int argc, char *argv[])
+{
+	ft_parse_arguments(argc, argv[1]);
+	ft_validate(argv[1]);
+	return (0);
+}

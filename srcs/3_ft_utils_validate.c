@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:51:30 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/01 08:22:49 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/07 18:01:27 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,18 @@ void	init_variable_map(t_map *map)
 	map->matrix_clone = NULL;
 	map->player_x = 0;
 	map->player_y = 0;
+	map->temp = NULL;
+}
+
+void	free_matrix(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i])
+	{
+		free(matrix[i]);
+		i++;
+	}
+	free(matrix);
 }

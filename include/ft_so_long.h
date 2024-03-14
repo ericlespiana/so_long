@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/07 17:26:04 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/14 02:57:04 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_SO_LONG_H
 
 # include "libft.h"
+# include "MLX42/MLX42.h"
 # include <fcntl.h>
 
 typedef struct s_maps
@@ -42,6 +43,7 @@ int			check_walls(t_map *map, size_t c_size, int time);
 void		ft_validate_elements(char *buffer, t_map *map);
 void		ft_validate_path(t_map *map);
 void		free_matrix(char **matrix);
+int			init_game(t_map *game);
 
 # define LIMIT_ARGS 2
 # define TRUE 1
@@ -49,5 +51,7 @@ void		free_matrix(char **matrix);
 # define EXIT_ERROR "Error\nYour map must have one and only one exit!\n"
 # define COLLEC_ERROR "Error\nYour map must have at least one collectibles!\n"
 # define PLAYER_ERROR "Error\nYour map must have one and only one player!\n"
+# define WIDTH 1080
+# define HEIGTH 720
 
 #endif

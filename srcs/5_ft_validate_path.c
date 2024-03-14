@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 10:46:12 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/07 18:11:53 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/13 23:49:09 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_validate_path(t_map *map)
 		free_matrix(map->matrix);
 		ft_error("Error\nInvalid MAP! Please provide a possible path!\n", NULL);
 	}
+	free_matrix(map->matrix_clone);
 }
 
 void	ft_validate_elements(char *buffer, t_map *map)

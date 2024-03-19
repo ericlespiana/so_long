@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/14 02:57:04 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/15 12:35:37 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,32 @@
 # include "MLX42/MLX42.h"
 # include <fcntl.h>
 
+typedef struct s_sprites
+{
+	mlx_texture_t	*texture;
+	mlx_image_t		*img;
+}	t_sprite;
+
+
 typedef struct s_maps
 {
-	int		fd;
-	int		start;
-	int		exit;
-	int		collectibles;
-	int		rows;
-	int		cols;
-	int		player_x;
-	int		player_y;
-	char	*temp;
-	char	**matrix;
-	char	**matrix_clone;
+	int				fd;
+	int				start;
+	int				exit;
+	int				collectibles;
+	int				rows;
+	int				cols;
+	int				player_x;
+	int				player_y;
+	char			*temp;
+	char			**matrix;
+	char			**matrix_clone;
+	mlx_t			*mlx;
+	t_sprite		*bg_sprit;
+	t_sprite		*wall_sprit;
+	t_sprite		*exit_sprit;
+	t_sprite		*player_sprit;
+	t_sprite		*collectibles_sprit;
 }	t_map;
 
 void		ft_parse_arguments(int argc, char *map_name);
@@ -51,7 +64,7 @@ int			init_game(t_map *game);
 # define EXIT_ERROR "Error\nYour map must have one and only one exit!\n"
 # define COLLEC_ERROR "Error\nYour map must have at least one collectibles!\n"
 # define PLAYER_ERROR "Error\nYour map must have one and only one player!\n"
-# define WIDTH 1080
-# define HEIGTH 720
+# define WIDTH 3000
+# define HEIGTH 1689
 
 #endif

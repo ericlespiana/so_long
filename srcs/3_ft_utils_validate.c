@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:51:30 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/07 18:01:27 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/15 13:18:42 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ void	init_variable_map(t_map *map)
 	map->player_x = 0;
 	map->player_y = 0;
 	map->temp = NULL;
+	map->mlx = NULL;
+	map->bg_sprit = NULL;
+	map->wall_sprit = NULL;
+	map->exit_sprit = NULL;
+	map->player_sprit = NULL;
+	map->collectibles_sprit = NULL;
 }
 
 void	free_matrix(char **matrix)

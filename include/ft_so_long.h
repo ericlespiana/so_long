@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/20 06:12:24 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/20 06:17:42 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_maps
 	int				cols;
 	int				player_x;
 	int				player_y;
+	int				count_moves;
 	char			*temp;
 	char			**matrix;
 	char			**matrix_clone;

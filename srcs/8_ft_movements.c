@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 06:11:41 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/20 06:15:42 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/20 06:21:04 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	validate_y(t_map *game, char operation)
 	{
 		if (game->matrix[game->player_x - 1][game->player_y] != '1')
 		{
+			ft_printf("Move: %d\n", ++game->count_moves);
 			game->player_sprit->img->instances[0].y -= 64;
 			game->player_x--;
 		}
@@ -26,6 +27,7 @@ static void	validate_y(t_map *game, char operation)
 	{
 		if (game->matrix[game->player_x + 1][game->player_y] != '1')
 		{
+			ft_printf("Move: %d\n", ++game->count_moves);
 			game->player_sprit->img->instances[0].y += 64;
 			game->player_x++;
 		}
@@ -38,6 +40,7 @@ static void	validate_x(t_map *game, char operation)
 	{
 		if (game->matrix[game->player_x][game->player_y - 1] != '1')
 		{
+			ft_printf("Move: %d\n", ++game->count_moves);
 			game->player_sprit->img->instances[0].x -= 64;
 			game->player_y--;
 		}
@@ -46,6 +49,7 @@ static void	validate_x(t_map *game, char operation)
 	{
 		if (game->matrix[game->player_x][game->player_y + 1] != '1')
 		{
+			ft_printf("Move: %d\n", ++game->count_moves);
 			game->player_sprit->img->instances[0].x += 64;
 			game->player_y++;
 		}

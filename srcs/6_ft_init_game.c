@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:47:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/20 06:15:04 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/20 06:24:32 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static void	init_sprits(t_map *game)
 
 static void	hook_key_press(mlx_key_data_t key, t_map *game)
 {
+	if (key.key == MLX_KEY_ESCAPE)
+		mlx_close_window(game->mlx);
 	if ((key.key == MLX_KEY_W || key.key == MLX_KEY_UP)
 		&& key.action == MLX_PRESS)
 		validate_move(game, 'y', '-');

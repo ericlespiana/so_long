@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:47:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/20 04:38:26 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/20 06:15:04 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,18 @@ static void	init_sprits(t_map *game)
 
 static void	hook_key_press(mlx_key_data_t key, t_map *game)
 {
-	if (key.key == MLX_KEY_W && key.action == MLX_PRESS)
-		game->player_sprit->img->instances[0].y -= 64;
-	if (key.key == MLX_KEY_S && key.action == MLX_PRESS)
-		game->player_sprit->img->instances[0].y += 64;
-	if (key.key == MLX_KEY_A && key.action == MLX_PRESS)
-		game->player_sprit->img->instances[0].x -= 64;
-	if (key.key == MLX_KEY_D && key.action == MLX_PRESS)
-		game->player_sprit->img->instances[0].x += 64;
-	return ;
+	if ((key.key == MLX_KEY_W || key.key == MLX_KEY_UP)
+		&& key.action == MLX_PRESS)
+		validate_move(game, 'y', '-');
+	else if ((key.key == MLX_KEY_S || key.key == MLX_KEY_DOWN)
+		&& key.action == MLX_PRESS)
+		validate_move(game, 'y', '+');
+	else if ((key.key == MLX_KEY_A || key.key == MLX_KEY_LEFT)
+		&& key.action == MLX_PRESS)
+		validate_move(game, 'x', '-');
+	else if ((key.key == MLX_KEY_D || key.key == MLX_KEY_RIGHT)
+		&& key.action == MLX_PRESS)
+		validate_move(game, 'x', '+');
 }
 
 int	init_game(t_map *game)

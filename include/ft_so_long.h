@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/20 03:44:26 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/20 06:12:24 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		ft_validate_path(t_map *map);
 void		free_matrix(char **matrix);
 int			init_game(t_map *game);
 void		create_map(t_map *game);
+void		validate_move(t_map *game, char direction, char op);
 
 # define LIMIT_ARGS 2
 # define TRUE 1

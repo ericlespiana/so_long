@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:47:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/19 20:25:19 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/20 04:38:26 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_sprite	*generate_imgs(t_map *game, char *path)
 {
 	t_sprite	*sprite;
 
-	sprite = ft_calloc(1, sizeof(t_sprite*));
+	sprite = ft_calloc(1, sizeof(t_sprite *));
 	if (!sprite)
 		return (NULL);
 	sprite->texture = mlx_load_png(path);
@@ -31,26 +31,47 @@ static t_sprite	*generate_imgs(t_map *game, char *path)
 		free_matrix(game->matrix);
 		ft_error("Error to create the image\n", NULL);
 	}
+	mlx_resize_image(sprite->img, IMG_SIZE, IMG_SIZE);
 	return (sprite);
 }
 
 static void	init_sprits(t_map *game)
 {
-	game->bg_sprit = generate_imgs(game, "textures/bg0.png");
+	game->bg_sprit = generate_imgs(game, "textures/floor.png");
 	game->wall_sprit = generate_imgs(game, "textures/wall0.png");
 	game->exit_sprit = generate_imgs(game, "textures/exit.png");
 	game->player_sprit = generate_imgs(game, "textures/player.png");
-	game->collectibles_sprit = generate_imgs(game, "textures/collectable0.png");	
+	game->collectibles_sprit = generate_imgs(game, "textures/collectable0.png");
+}
+
+static void	hook_key_press(mlx_key_data_t key, t_map *game)
+{
+	if (key.key == MLX_KEY_W && key.action == MLX_PRESS)
+		game->player_sprit->img->instances[0].y -= 64;
+	if (key.key == MLX_KEY_S && key.action == MLX_PRESS)
+		game->player_sprit->img->instances[0].y += 64;
+	if (key.key == MLX_KEY_A && key.action == MLX_PRESS)
+		game->player_sprit->img->instances[0].x -= 64;
+	if (key.key == MLX_KEY_D && key.action == MLX_PRESS)
+		game->player_sprit->img->instances[0].x += 64;
+	return ;
 }
 
 int	init_game(t_map *game)
 {
-	game->mlx = mlx_init(WIDTH, HEIGTH, "So long", true);
+	int	max_columns;
+	int	max_lines;
+
+	max_columns = IMG_SIZE * game->cols;
+	max_lines = IMG_SIZE * game->rows;
+	mlx_set_setting(MLX_STRETCH_IMAGE, true);
+	game->mlx = mlx_init(max_columns, max_lines, "So long", true);
 	if (!game->mlx)
 		return (1);
-	init_sprits(game);h
+	init_sprits(game);
+	create_map(game);
+	mlx_key_hook(game->mlx, (mlx_keyfunc)hook_key_press, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
-	
 	return (0);
 }

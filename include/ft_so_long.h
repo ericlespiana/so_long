@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/15 12:35:37 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/20 03:44:26 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_sprites
 	mlx_texture_t	*texture;
 	mlx_image_t		*img;
 }	t_sprite;
-
 
 typedef struct s_maps
 {
@@ -57,6 +56,7 @@ void		ft_validate_elements(char *buffer, t_map *map);
 void		ft_validate_path(t_map *map);
 void		free_matrix(char **matrix);
 int			init_game(t_map *game);
+void		create_map(t_map *game);
 
 # define LIMIT_ARGS 2
 # define TRUE 1
@@ -64,7 +64,8 @@ int			init_game(t_map *game);
 # define EXIT_ERROR "Error\nYour map must have one and only one exit!\n"
 # define COLLEC_ERROR "Error\nYour map must have at least one collectibles!\n"
 # define PLAYER_ERROR "Error\nYour map must have one and only one player!\n"
-# define WIDTH 3000
-# define HEIGTH 1689
+# define WIDTH 1920
+# define HEIGTH 1080
+# define IMG_SIZE 64
 
 #endif

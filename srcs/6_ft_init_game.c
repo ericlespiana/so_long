@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:47:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/20 06:24:32 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:45:45 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static void	hook_key_press(mlx_key_data_t key, t_map *game)
 	else if ((key.key == MLX_KEY_D || key.key == MLX_KEY_RIGHT)
 		&& key.action == MLX_PRESS)
 		validate_move(game, 'x', '+');
+	upt_collectible(game);
+	check_won(game);
 }
 
 int	init_game(t_map *game)

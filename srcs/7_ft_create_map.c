@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 20:28:07 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/20 03:57:54 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:38:04 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	put_exit(t_map *game, int c, int l)
 	x = c * IMG_SIZE;
 	y = l * IMG_SIZE;
 	mlx_image_to_window(game->mlx, game->exit_sprit->img, x, y);
+	game->exit_sprit->img->enabled = FALSE;
 }
 
 static void	put_collectible(t_map *game, int c, int l)

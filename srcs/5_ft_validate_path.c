@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 10:46:12 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/13 23:49:09 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/21 18:59:29 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_validate_elements(char *buffer, t_map *map)
 		ft_error(PLAYER_ERROR, buffer);
 	else if (map->collectibles < 1)
 		ft_error(COLLEC_ERROR, buffer);
+	map->rest_collectibles = map->collectibles;
 }
 
 static void	find_position_player(t_map *map)

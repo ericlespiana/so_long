@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/20 06:17:42 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:46:02 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_maps
 	int				player_x;
 	int				player_y;
 	int				count_moves;
+	int				rest_collectibles;
 	char			*temp;
 	char			**matrix;
 	char			**matrix_clone;
@@ -59,6 +60,8 @@ void		free_matrix(char **matrix);
 int			init_game(t_map *game);
 void		create_map(t_map *game);
 void		validate_move(t_map *game, char direction, char op);
+void		upt_collectible(t_map *game);
+void		check_won(t_map *game);
 
 # define LIMIT_ARGS 2
 # define TRUE 1

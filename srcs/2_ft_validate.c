@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:37:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/21 18:56:23 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/21 23:39:07 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,7 @@ void	ft_validate(char *map_name)
 	map.matrix_clone = ft_split(buffer, '\n');
 	free(buffer);
 	ft_validate_path(&map);
-	if (init_game(&map))
-	{
-		free_matrix(map.matrix);
-		ft_error("It was not possible to init the game!\n", NULL);
-	}
+	init_game(&map);
 }
 
 static char	*ft_validate_map(t_map *map)

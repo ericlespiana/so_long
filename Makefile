@@ -6,7 +6,7 @@
 #    By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 02:50:47 by erpiana           #+#    #+#              #
-#    Updated: 2024/03/20 06:12:51 by erpiana          ###   ########.fr        #
+#    Updated: 2024/03/21 19:49:25 by erpiana          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CPPFLAGS         := $(addprefix -I, $(INCS)) -MP
 #******************************************************************************#
 
 SRCS     += $(addprefix $(SRC_P), 0_main.c 1_ft_parse_arguments.c 2_ft_validate.c 3_ft_utils_validate.c 4_ft_checks.c 5_ft_validate_path.c 6_ft_init_game.c \
-									7_ft_create_map.c 8_ft_movements.c)
+									7_ft_create_map.c 8_ft_movements.c 9_finish_game.c)
 OBJS     += $(addprefix obj/, $(notdir $(SRCS:.c=.o)))
 NAME     := so_long
 LIBFT    := $(addprefix $(LIB_P), libft.a)

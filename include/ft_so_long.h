@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/21 19:46:02 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/21 21:56:00 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void		create_map(t_map *game);
 void		validate_move(t_map *game, char direction, char op);
 void		upt_collectible(t_map *game);
 void		check_won(t_map *game);
+void		finish_game(t_map *game);
 
 # define LIMIT_ARGS 2
 # define TRUE 1
@@ -69,8 +70,6 @@ void		check_won(t_map *game);
 # define EXIT_ERROR "Error\nYour map must have one and only one exit!\n"
 # define COLLEC_ERROR "Error\nYour map must have at least one collectibles!\n"
 # define PLAYER_ERROR "Error\nYour map must have one and only one player!\n"
-# define WIDTH 1920
-# define HEIGTH 1080
 # define IMG_SIZE 64
 
 #endif

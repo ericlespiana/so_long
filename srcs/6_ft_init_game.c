@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:47:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/21 19:45:45 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/21 23:37:44 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_sprite	*generate_imgs(t_map *game, char *path)
 {
 	t_sprite	*sprite;
 
-	sprite = ft_calloc(1, sizeof(t_sprite *));
+	sprite = ft_calloc(1, sizeof(t_sprite));
 	if (!sprite)
 		return (NULL);
 	sprite->texture = mlx_load_png(path);
@@ -47,8 +47,8 @@ static void	init_sprits(t_map *game)
 static void	hook_key_press(mlx_key_data_t key, t_map *game)
 {
 	if (key.key == MLX_KEY_ESCAPE)
-		mlx_close_window(game->mlx);
-	if ((key.key == MLX_KEY_W || key.key == MLX_KEY_UP)
+		finish_game(game);
+	else if ((key.key == MLX_KEY_W || key.key == MLX_KEY_UP)
 		&& key.action == MLX_PRESS)
 		validate_move(game, 'y', '-');
 	else if ((key.key == MLX_KEY_S || key.key == MLX_KEY_DOWN)
@@ -79,6 +79,6 @@ int	init_game(t_map *game)
 	create_map(game);
 	mlx_key_hook(game->mlx, (mlx_keyfunc)hook_key_press, game);
 	mlx_loop(game->mlx);
-	mlx_terminate(game->mlx);
+	finish_game(game);
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   10_update_steps_bonus.c                            :+:      :+:    :+:   */
+/*   10_steps_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 11:41:58 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 11:46:29 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 13:45:53 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ void	updt_steps(t_map *game)
 	steps = ft_itoa(game->count_moves);
 	if (game->steps)
 		mlx_delete_image(game->mlx, game->steps);
-	game->steps = mlx_put_string(game->mlx, steps, 60, 0);
+	game->steps = mlx_put_string(game->mlx, steps, 100, 20);
 	free(steps);
 }
 
 void	put_step_text(t_map *game)
 {
-	game->text_step = mlx_put_string(game->mlx, "Steps:", 0, 0);
+	mlx_resize_image(game->bg_count->img, 150, IMG_SIZE);
+	mlx_image_to_window(game->mlx, game->bg_count->img, 0, 0);
+	game->text_step = mlx_put_string(game->mlx, "Steps:", 40, 20);
 	updt_steps(game);
 }

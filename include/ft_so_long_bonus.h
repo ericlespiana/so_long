@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 11:42:36 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 13:16:57 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_maps
 	t_sprite		*exit_sprit;
 	t_sprite		*player_sprit;
 	t_sprite		*collectibles_sprit;
+	t_sprite		*bg_count;
 	mlx_image_t		*steps;
 	mlx_image_t		*text_step;
 }	t_map;

@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 19:53:38 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 11:57:52 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 13:35:23 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	finish_game(t_map *game)
 	free_sprite(game, game->collectibles_sprit);
 	free_sprite(game, game->exit_sprit);
 	free_sprite(game, game->wall_sprit);
+	free_sprite(game, game->bg_count);
 	mlx_delete_image(game->mlx, game->text_step);
 	mlx_delete_image(game->mlx, game->steps);
 	mlx_close_window(game->mlx);

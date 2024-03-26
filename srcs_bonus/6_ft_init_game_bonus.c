@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:47:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 09:55:22 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 13:46:10 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	init_sprits(t_map *game)
 	game->exit_sprit = generate_imgs(game, "textures/exit.png");
 	game->player_sprit = generate_imgs(game, "textures/player_down_1.png");
 	game->collectibles_sprit = generate_imgs(game, "textures/collectable0.png");
+	game->bg_count = generate_imgs(game, "textures/wall_count.png");
 }
 
 static void	hook_key_press(mlx_key_data_t key, t_map *game)

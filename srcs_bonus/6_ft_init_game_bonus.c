@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:47:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 13:46:10 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 14:01:31 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ static void	init_sprits(t_map *game)
 	game->bg_sprit = generate_imgs(game, "textures/floor.png");
 	game->wall_sprit = generate_imgs(game, "textures/wall.png");
 	game->exit_sprit = generate_imgs(game, "textures/exit.png");
-	game->player_sprit = generate_imgs(game, "textures/player_down_1.png");
+	game->player_sprit[0] = generate_imgs(game, "textures/player_down_1.png");
+	game->player_sprit[1] = generate_imgs(game, "textures/player_up_1.png");
+	game->player_sprit[2] = generate_imgs(game, "textures/player_left_1.png");
+	game->player_sprit[3] = generate_imgs(game, "textures/player_right_1.png");
 	game->collectibles_sprit = generate_imgs(game, "textures/collectable0.png");
 	game->bg_count = generate_imgs(game, "textures/wall_count.png");
 }

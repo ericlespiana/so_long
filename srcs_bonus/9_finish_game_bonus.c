@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 19:53:38 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 13:35:23 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 14:09:08 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void	finish_game(t_map *game)
 {
 	free_matrix(game->matrix);
 	free_sprite(game, game->bg_sprit);
-	free_sprite(game, game->player_sprit);
+	free_sprite(game, game->player_sprit[0]);
+	free_sprite(game, game->player_sprit[1]);
+	free_sprite(game, game->player_sprit[2]);
+	free_sprite(game, game->player_sprit[3]);
 	free_sprite(game, game->collectibles_sprit);
 	free_sprite(game, game->exit_sprit);
 	free_sprite(game, game->wall_sprit);

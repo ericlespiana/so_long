@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 06:11:41 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 11:12:10 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 15:06:53 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	check_won(t_map *game)
 			game->exit_sprit->img->enabled = TRUE;
 	}
 	if (game->exit_sprit->img->enabled
-		&& game->player_sprit->img->instances[0].x
+		&& game->player_sprit[0]->img->instances[0].x
 		== game->exit_sprit->img->instances[0].x
-		&& game->player_sprit->img->instances[0].y
+		&& game->player_sprit[0]->img->instances[0].y
 		== game->exit_sprit->img->instances[0].y)
 	{
 		ft_printf("Congratulations!! You won!!\n");
@@ -37,9 +37,9 @@ void	upt_collectible(t_map *game)
 	i = 0;
 	while (i < game->collectibles)
 	{
-		if (game->player_sprit->img->instances[0].x
+		if (game->player_sprit[0]->img->instances[0].x
 			== game->collectibles_sprit->img->instances[i].x
-			&& game->player_sprit->img->instances[0].y
+			&& game->player_sprit[0]->img->instances[0].y
 			== game->collectibles_sprit->img->instances[i].y)
 		{
 			if (game->collectibles_sprit->img->instances[i].enabled)
@@ -56,21 +56,23 @@ static void	validate_y(t_map *game, char operation)
 {
 	if (operation == '-')
 	{
+		update_sprite(game, 'y', '-');
 		if (game->matrix[game->player_x - 1][game->player_y] != '1')
 		{
 			game->count_moves++;
 			updt_steps(game);
-			game->player_sprit->img->instances[0].y -= 64;
+			moove_player(game, 'y', '-');
 			game->player_x--;
 		}
 	}
 	else
 	{
+		update_sprite(game, 'y', '+');
 		if (game->matrix[game->player_x + 1][game->player_y] != '1')
 		{
 			game->count_moves++;
 			updt_steps(game);
-			game->player_sprit->img->instances[0].y += 64;
+			moove_player(game, 'y', '+');
 			game->player_x++;
 		}
 	}
@@ -80,21 +82,23 @@ static void	validate_x(t_map *game, char operation)
 {
 	if (operation == '-')
 	{
+		update_sprite(game, 'x', '-');
 		if (game->matrix[game->player_x][game->player_y - 1] != '1')
 		{
 			game->count_moves++;
 			updt_steps(game);
-			game->player_sprit->img->instances[0].x -= 64;
+			moove_player(game, 'x', '-');
 			game->player_y--;
 		}
 	}
 	else
 	{
+		update_sprite(game, 'x', '+');
 		if (game->matrix[game->player_x][game->player_y + 1] != '1')
 		{
 			game->count_moves++;
 			updt_steps(game);
-			game->player_sprit->img->instances[0].x += 64;
+			moove_player(game, 'x', '+');
 			game->player_y++;
 		}
 	}

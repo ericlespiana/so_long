@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:51:30 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 13:17:08 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 14:08:36 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ void	init_variable_map(t_map *map)
 	map->bg_sprit = NULL;
 	map->wall_sprit = NULL;
 	map->exit_sprit = NULL;
-	map->player_sprit = NULL;
+	map->player_sprit[0] = NULL;
+	map->player_sprit[1] = NULL;
+	map->player_sprit[2] = NULL;
+	map->player_sprit[3] = NULL;
 	map->collectibles_sprit = NULL;
 	map->bg_count = NULL;
 	map->text_step = NULL;

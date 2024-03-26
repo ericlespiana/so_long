@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 20:28:07 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 11:46:03 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 14:35:00 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,13 @@ static void	put_player(t_map *game)
 
 	x = game->player_x * IMG_SIZE;
 	y = game->player_y * IMG_SIZE;
-	mlx_image_to_window(game->mlx, game->player_sprit->img, y, x);
+	mlx_image_to_window(game->mlx, game->player_sprit[0]->img, y, x);
+	mlx_image_to_window(game->mlx, game->player_sprit[1]->img, y, x);
+	mlx_image_to_window(game->mlx, game->player_sprit[2]->img, y, x);
+	mlx_image_to_window(game->mlx, game->player_sprit[3]->img, y, x);
+	game->player_sprit[1]->img->enabled = 0;
+	game->player_sprit[2]->img->enabled = 0;
+	game->player_sprit[3]->img->enabled = 0;
 }
 
 void	create_map(t_map *game)

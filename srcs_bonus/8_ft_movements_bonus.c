@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   8_ft_movements.c                                   :+:      :+:    :+:   */
+/*   8_ft_movements_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 06:11:41 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 10:47:09 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 11:12:10 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_so_long.h"
+#include "ft_so_long_bonus.h"
 
 void	check_won(t_map *game)
 {
@@ -58,7 +58,8 @@ static void	validate_y(t_map *game, char operation)
 	{
 		if (game->matrix[game->player_x - 1][game->player_y] != '1')
 		{
-			ft_printf("Move: %d\n", ++game->count_moves);
+			game->count_moves++;
+			updt_steps(game);
 			game->player_sprit->img->instances[0].y -= 64;
 			game->player_x--;
 		}
@@ -67,7 +68,8 @@ static void	validate_y(t_map *game, char operation)
 	{
 		if (game->matrix[game->player_x + 1][game->player_y] != '1')
 		{
-			ft_printf("Move: %d\n", ++game->count_moves);
+			game->count_moves++;
+			updt_steps(game);
 			game->player_sprit->img->instances[0].y += 64;
 			game->player_x++;
 		}
@@ -80,7 +82,8 @@ static void	validate_x(t_map *game, char operation)
 	{
 		if (game->matrix[game->player_x][game->player_y - 1] != '1')
 		{
-			ft_printf("Move: %d\n", ++game->count_moves);
+			game->count_moves++;
+			updt_steps(game);
 			game->player_sprit->img->instances[0].x -= 64;
 			game->player_y--;
 		}
@@ -89,7 +92,8 @@ static void	validate_x(t_map *game, char operation)
 	{
 		if (game->matrix[game->player_x][game->player_y + 1] != '1')
 		{
-			ft_printf("Move: %d\n", ++game->count_moves);
+			game->count_moves++;
+			updt_steps(game);
 			game->player_sprit->img->instances[0].x += 64;
 			game->player_y++;
 		}

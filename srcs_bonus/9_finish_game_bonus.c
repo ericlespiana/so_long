@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 19:53:38 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 14:09:08 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 17:01:08 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,19 @@ static void	free_sprite(t_map *game, t_sprite *sprite)
 
 void	finish_game(t_map *game)
 {
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+			free_sprite(game, game->player_sprit[i][j++]);
+		i++;
+	}
 	free_matrix(game->matrix);
 	free_sprite(game, game->bg_sprit);
-	free_sprite(game, game->player_sprit[0]);
-	free_sprite(game, game->player_sprit[1]);
-	free_sprite(game, game->player_sprit[2]);
-	free_sprite(game, game->player_sprit[3]);
 	free_sprite(game, game->collectibles_sprit);
 	free_sprite(game, game->exit_sprit);
 	free_sprite(game, game->wall_sprit);

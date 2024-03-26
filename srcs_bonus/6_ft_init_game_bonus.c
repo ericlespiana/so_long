@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:47:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 14:01:31 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 18:24:58 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,27 @@ static t_sprite	*generate_imgs(t_map *game, char *path)
 
 static void	init_sprits(t_map *game)
 {
-	game->bg_sprit = generate_imgs(game, "textures/floor.png");
-	game->wall_sprit = generate_imgs(game, "textures/wall.png");
-	game->exit_sprit = generate_imgs(game, "textures/exit.png");
-	game->player_sprit[0] = generate_imgs(game, "textures/player_down_1.png");
-	game->player_sprit[1] = generate_imgs(game, "textures/player_up_1.png");
-	game->player_sprit[2] = generate_imgs(game, "textures/player_left_1.png");
-	game->player_sprit[3] = generate_imgs(game, "textures/player_right_1.png");
-	game->collectibles_sprit = generate_imgs(game, "textures/collectable0.png");
-	game->bg_count = generate_imgs(game, "textures/wall_count.png");
+	game->bg_sprit = generate_imgs(game, "text/floor.png");
+	game->wall_sprit = generate_imgs(game, "text/wall.png");
+	game->exit_sprit = generate_imgs(game, "text/exit.png");
+	game->player_sprit[0][0] = generate_imgs(game, "text/player_down_1.png");
+	game->player_sprit[0][1] = generate_imgs(game, "text/player_down_2.png");
+	game->player_sprit[0][2] = generate_imgs(game, "text/player_down_3.png");
+	game->player_sprit[0][3] = generate_imgs(game, "text/player_down_4.png");
+	game->player_sprit[1][0] = generate_imgs(game, "text/player_up_1.png");
+	game->player_sprit[1][1] = generate_imgs(game, "text/player_up_2.png");
+	game->player_sprit[1][2] = generate_imgs(game, "text/player_up_3.png");
+	game->player_sprit[1][3] = generate_imgs(game, "text/player_up_4.png");
+	game->player_sprit[2][0] = generate_imgs(game, "text/player_left_1.png");
+	game->player_sprit[2][1] = generate_imgs(game, "text/player_left_2.png");
+	game->player_sprit[2][2] = generate_imgs(game, "text/player_left_3.png");
+	game->player_sprit[2][3] = generate_imgs(game, "text/player_left_4.png");
+	game->player_sprit[3][0] = generate_imgs(game, "text/player_right_1.png");
+	game->player_sprit[3][1] = generate_imgs(game, "text/player_right_2.png");
+	game->player_sprit[3][2] = generate_imgs(game, "text/player_right_3.png");
+	game->player_sprit[3][3] = generate_imgs(game, "text/player_right_4.png");
+	game->collectibles_sprit = generate_imgs(game, "text/collectable0.png");
+	game->bg_count = generate_imgs(game, "text/wall_count.png");
 }
 
 static void	hook_key_press(mlx_key_data_t key, t_map *game)
@@ -82,6 +94,7 @@ int	init_game(t_map *game)
 	init_sprits(game);
 	create_map(game);
 	mlx_key_hook(game->mlx, (mlx_keyfunc)hook_key_press, game);
+	mlx_loop_hook(game->mlx, (void *)ft_animation, game);
 	mlx_loop(game->mlx);
 	finish_game(game);
 	return (0);

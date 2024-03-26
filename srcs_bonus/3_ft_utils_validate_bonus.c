@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:51:30 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 14:08:36 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 18:28:11 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,17 @@ int	open_file(char *file)
 
 void	init_variable_map(t_map *map)
 {
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+				map->player_sprit[i][j++] = NULL;
+		i++;
+	}
 	map->start = 0;
 	map->exit = 0;
 	map->collectibles = 0;
@@ -49,15 +60,12 @@ void	init_variable_map(t_map *map)
 	map->player_y = 0;
 	map->count_moves = 0;
 	map->rest_collectibles = 0;
+	map->side = 0;
 	map->temp = NULL;
 	map->mlx = NULL;
 	map->bg_sprit = NULL;
 	map->wall_sprit = NULL;
 	map->exit_sprit = NULL;
-	map->player_sprit[0] = NULL;
-	map->player_sprit[1] = NULL;
-	map->player_sprit[2] = NULL;
-	map->player_sprit[3] = NULL;
 	map->collectibles_sprit = NULL;
 	map->bg_count = NULL;
 	map->text_step = NULL;

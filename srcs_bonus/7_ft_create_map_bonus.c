@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 20:28:07 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 14:35:00 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 18:05:05 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,29 @@ static void	put_collectible(t_map *game, int c, int l)
 
 static void	put_player(t_map *game)
 {
+	int	i;
+	int	j;
 	int	x;
 	int	y;
 
 	x = game->player_x * IMG_SIZE;
 	y = game->player_y * IMG_SIZE;
-	mlx_image_to_window(game->mlx, game->player_sprit[0]->img, y, x);
-	mlx_image_to_window(game->mlx, game->player_sprit[1]->img, y, x);
-	mlx_image_to_window(game->mlx, game->player_sprit[2]->img, y, x);
-	mlx_image_to_window(game->mlx, game->player_sprit[3]->img, y, x);
-	game->player_sprit[1]->img->enabled = 0;
-	game->player_sprit[2]->img->enabled = 0;
-	game->player_sprit[3]->img->enabled = 0;
+	i = 0;
+	while (i <= 3)
+	{
+		j = -1;
+		while (++j <= 3)
+			mlx_image_to_window(game->mlx, game->player_sprit[i][j]->img, y, x);
+		i++;
+	}
+	i = 1;
+	while (i <= 3)
+	{
+		j = 0;
+		while (j <= 3)
+			game->player_sprit[i][j++]->img->enabled = 0;
+		i++;
+	}
 }
 
 void	create_map(t_map *game)

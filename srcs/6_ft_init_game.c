@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 23:47:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/22 03:25:42 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 17:59:50 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ static t_sprite	*generate_imgs(t_map *game, char *path)
 
 static void	init_sprits(t_map *game)
 {
-	game->bg_sprit = generate_imgs(game, "textures/floor.png");
-	game->wall_sprit = generate_imgs(game, "textures/wall.png");
-	game->exit_sprit = generate_imgs(game, "textures/exit.png");
-	game->player_sprit = generate_imgs(game, "textures/player_down_1.png");
-	game->collectibles_sprit = generate_imgs(game, "textures/collectable0.png");
+	game->bg_sprit = generate_imgs(game, "text/floor.png");
+	game->wall_sprit = generate_imgs(game, "text/wall.png");
+	game->exit_sprit = generate_imgs(game, "text/exit.png");
+	game->player_sprit = generate_imgs(game, "text/player_down_1.png");
+	game->collectibles_sprit = generate_imgs(game, "text/collectable0.png");
 }
 
 static void	hook_key_press(mlx_key_data_t key, t_map *game)

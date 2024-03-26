@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 15:07:59 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/26 15:59:07 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_maps
 	int				player_y;
 	int				count_moves;
 	int				rest_collectibles;
+	char			side;
 	char			*temp;
 	char			**matrix;
 	char			**matrix_clone;
@@ -42,7 +43,7 @@ typedef struct s_maps
 	t_sprite		*bg_sprit;
 	t_sprite		*wall_sprit;
 	t_sprite		*exit_sprit;
-	t_sprite		*player_sprit[4];
+	t_sprite		*player_sprit[4][4];
 	t_sprite		*collectibles_sprit;
 	t_sprite		*bg_count;
 	mlx_image_t		*steps;
@@ -70,6 +71,7 @@ void		put_step_text(t_map *game);
 void		updt_steps(t_map *game);
 void		update_sprite(t_map *game, char axle, char operation);
 void		moove_player(t_map *game, char axle, char operation);
+void		ft_animation(t_map *game);
 
 # define LIMIT_ARGS 2
 # define TRUE 1

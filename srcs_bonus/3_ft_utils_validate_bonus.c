@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:51:30 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 18:28:11 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/27 16:20:38 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,38 +38,27 @@ int	open_file(char *file)
 
 void	init_variable_map(t_map *map)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-				map->player_sprit[i][j++] = NULL;
-		i++;
-	}
 	map->start = 0;
 	map->exit = 0;
 	map->collectibles = 0;
 	map->rows = 0;
 	map->cols = 0;
-	map->matrix = NULL;
-	map->matrix_clone = NULL;
 	map->player_x = 0;
 	map->player_y = 0;
 	map->count_moves = 0;
 	map->rest_collectibles = 0;
 	map->side = 0;
 	map->temp = NULL;
+	map->matrix = NULL;
+	map->matrix_clone = NULL;
 	map->mlx = NULL;
+	map->steps = NULL;
+	map->text_step = NULL;
 	map->bg_sprit = NULL;
 	map->wall_sprit = NULL;
 	map->exit_sprit = NULL;
 	map->collectibles_sprit = NULL;
 	map->bg_count = NULL;
-	map->text_step = NULL;
-	map->steps = NULL;
 }
 
 void	free_matrix(char **matrix)

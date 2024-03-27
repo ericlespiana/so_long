@@ -6,7 +6,7 @@
 #    By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/21 02:50:47 by erpiana           #+#    #+#              #
-#    Updated: 2024/03/26 16:08:08 by erpiana          ###   ########.fr        #
+#    Updated: 2024/03/27 16:23:02 by erpiana          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS       += $(addprefix $(SRC_P), 0_main.c 1_ft_parse_arguments.c 2_ft_validat
 						7_ft_create_map.c 8_ft_movements.c 9_finish_game.c)
 SRCS_BONUS  += $(addprefix $(SRC_BONUS_P), 0_main_bonus.c 1_ft_parse_arguments_bonus.c 2_ft_validate_bonus.c 3_ft_utils_validate_bonus.c \
 						4_ft_checks_bonus.c 5_ft_validate_path_bonus.c 6_ft_init_game_bonus.c 7_ft_create_map_bonus.c 8_ft_movements_bonus.c \
-						9_finish_game_bonus.c 10_steps_bonus.c 11_animation_player.c)
+						9_finish_game_bonus.c 10_steps_bonus.c 11_animation_player_bonus.c)
 OBJS     += $(addprefix obj/, $(notdir $(SRCS:.c=.o)))
 OBJS_B   += $(addprefix obj_bonus/, $(notdir $(SRCS_BONUS:.c=.o)))
 NAME     := so_long
@@ -53,7 +53,7 @@ BUILD_BONUS := obj_bonus/
 #******************************************************************************#
 
 CC       := cc
-CFLAGS   :=  -g3 -Wall -Wextra -Werror
+CFLAGS   :=  -g3 -Ofast -Wall -Wextra -Werror
 LDFLAGS  := $(addprefix -L,$(dir $(LIBS)))
 LDLIBS   := -ldl -lglfw -lm -lpthread
 

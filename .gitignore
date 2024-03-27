@@ -7,3 +7,6 @@ obj/
 so_long
 so_long_bonus
 libft.a
+.gitignore
+.suppress.sup
+so_long_bonus

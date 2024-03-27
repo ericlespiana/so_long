@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 02:50:37 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/26 15:59:07 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/27 16:17:53 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ typedef struct s_maps
 	char			**matrix;
 	char			**matrix_clone;
 	mlx_t			*mlx;
+	mlx_image_t		*steps;
+	mlx_image_t		*text_step;
 	t_sprite		*bg_sprit;
 	t_sprite		*wall_sprit;
 	t_sprite		*exit_sprit;
-	t_sprite		*player_sprit[4][4];
 	t_sprite		*collectibles_sprit;
 	t_sprite		*bg_count;
-	mlx_image_t		*steps;
-	mlx_image_t		*text_step;
+	t_sprite		*player_sprit[4][4];
 }	t_map;
 
 void		ft_parse_arguments(int argc, char *map_name);

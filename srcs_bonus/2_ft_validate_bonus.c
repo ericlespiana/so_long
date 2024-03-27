@@ -6,7 +6,7 @@
 /*   By: erpiana <erpiana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 07:37:40 by erpiana           #+#    #+#             */
-/*   Updated: 2024/03/22 05:35:00 by erpiana          ###   ########.fr       */
+/*   Updated: 2024/03/27 16:18:11 by erpiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,18 @@ void	ft_validate(char *map_name)
 {
 	t_map	map;
 	char	*buffer;
+	int		i;
+	int		j;
 
 	init_variable_map(&map);
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+				map.player_sprit[i][j++] = NULL;
+		i++;
+	}
 	count_lines_file(&map, map_name);
 	map.fd = open_file(map_name);
 	buffer = ft_validate_map(&map);

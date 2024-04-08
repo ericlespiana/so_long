@@ -20,8 +20,9 @@ So_Long é um projeto do curso da 42 que envolve a criação de um jogo simples 
 ## Instalação e Execução:
 1. Clone este repositório: `git clone https://github.com/ericlespiana/so_long.git`
 2. Navegue até o diretório do projeto: `cd so_long`
-3. Compile o programa: `make ou make bonus para jogar o jogo com animações`
-4. Execute o jogo: `./so_long ./maps/map1.ber ou ./so_long_bonus ./maps/map1.ber`
+3. Baixe o repositório da MLX `git submodule update --init`
+4. Compile o programa: `make ou make bonus para jogar o jogo com animações`
+5. Execute o jogo: `./so_long ./maps/map1.ber ou ./so_long_bonus ./maps/map1.ber`
 
 ## Controles:
 - `W`: Mover para cima
